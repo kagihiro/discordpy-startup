@@ -23,10 +23,10 @@ def get_dice_info(message):
 
 
 def roll(message):
-    return message
     times, side = get_dice_info(message)
     # ダイスを振った結果のリスト
+    return 't : {}, s : {}'.format(times, side)
     rand_res = [random.randint(1, side) for x in range(times)]
     # 2d6  = (5+5) = 10
     res = '{} : ({}) = {}'.format(message, '+'.join(rand_res), sum(rand_res))
-    # return res
+    return res
