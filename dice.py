@@ -28,4 +28,5 @@ def roll(message):
     rand_res = [random.randint(1, side) for x in range(times)]
     # 2d6  = (5+5) = 10
     res = '{} : ({}) = {}'.format(message, '+'.join(rand_res), sum(rand_res))
-    return res
+    # return res
+    return message
