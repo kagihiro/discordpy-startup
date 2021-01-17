@@ -22,7 +22,7 @@ async def ping(ctx):
 
 
 @bot.command()
-async def t(ctx):
+async def toss(ctx):
     # coin toss
     await ctx.send(coin_toss.toss())
 
@@ -30,7 +30,8 @@ async def t(ctx):
 @bot.command()
 async def r(ctx):
     # roll dice
-    await ctx.send(dice.roll(ctx))
+    # await ctx.send(dice.roll(ctx))
+    await ctx.send(ctx)
 
 
 bot.run(token)
