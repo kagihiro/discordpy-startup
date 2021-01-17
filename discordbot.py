@@ -21,4 +21,14 @@ async def ping(ctx):
     await ctx.send('pong')
 
 
+async def t(ctx):
+    # coin toss
+    await ctx.send(coin_toss.toss())
+
+
+async def r(ctx):
+    # roll dice
+    await ctx.send(dice.roll(ctx))
+
+
 bot.run(token)
