@@ -27,6 +27,6 @@ def roll(message):
     # ダイスを振った結果のリスト
     rand_res = [random.randint(1, side) for x in range(times)]
     # 2d6  = (5+5) = 10
-    res = '{} : ({}) = {}'.format(
-        message, '+'.join(map(str, rand_res)), sum(rand_res))
+    res = '{}d{} : ({}) = {}'.format(
+        times, side, '+'.join(map(str, rand_res)), sum(rand_res))
     return res
