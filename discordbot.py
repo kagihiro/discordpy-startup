@@ -28,10 +28,9 @@ async def toss(ctx):
 
 
 @bot.command()
-async def r(ctx):
+async def r(ctx, arg):
     # roll dice
-    # await ctx.send(dice.roll(ctx))
-    await ctx.send(ctx)
+    await ctx.send(dice.roll(arg))
 
 
 bot.run(token)
