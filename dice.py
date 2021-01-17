@@ -8,7 +8,7 @@ default_side = 6
 
 def get_dice_info(message):
     # 無記入に対応
-    if message = '':
+    if message == '':
         return [default_times, default_side]
 
     # 1d3 -> [1回,3面]
