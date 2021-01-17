@@ -21,11 +21,13 @@ async def ping(ctx):
     await ctx.send('pong')
 
 
+@bot.command()
 async def t(ctx):
     # coin toss
     await ctx.send(coin_toss.toss())
 
 
+@bot.command()
 async def r(ctx):
     # roll dice
     await ctx.send(dice.roll(ctx))
