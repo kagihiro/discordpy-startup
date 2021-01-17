@@ -17,15 +17,18 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視
-    if message.author.bot:
-        return
-    # 「/toss」と発言したらトス結果が返る処理
-    if ('/t' in message.content):
-        await message.channel.send(coin_toss.toss())
-    if ('/r' in message.content):
-        await message.channel.send(dice.roll(message.content.split()[1]))
+async def ping(ctx):
+    await ctx.send('pong')
+
+
+async def t(ctx):
+    # coin toss
+    await ctx.send(coin_toss.toss())
+
+
+async def r(ctx):
+    # roll dice
+    await ctx.send(dice.roll(ctx))
 
 
 bot.run(token)
