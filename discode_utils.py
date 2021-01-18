@@ -2,7 +2,7 @@ from discord.ext import commands
 
 
 def get_mention(ctx):
-    member_id = 111111111111111111
+    member_id = ctx.author.id
     member = ctx.guild.get_member(member_id)
     return member.mention
 
