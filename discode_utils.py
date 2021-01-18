@@ -8,4 +8,4 @@ def get_mention(ctx):
 
 def get_mentioned_message(ctx, message):
     mention = get_mention(ctx)
-    return '{}¥n{}'.format(mention, message)
+    return '{}\n{}'.format(mention, message)
