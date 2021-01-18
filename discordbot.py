@@ -3,6 +3,7 @@ import os
 import traceback
 import coin_toss
 import dice
+import discode_utils
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -24,13 +25,15 @@ async def ping(ctx):
 @bot.command()
 async def toss(ctx):
     # coin toss
-    await ctx.send(coin_toss.toss())
+    toss_res = coin_toss.toss()
+    await ctx.send(discode_utils.get_mentioned_message(ctx, toss_res))
 
 
 @bot.command()
 async def r(ctx, arg):
     # roll dice
-    await ctx.send(dice.roll(arg))
+    dice_res = dice.roll(arg)
+    await ctx.send(discode_utils.get_mentioned_message(ctx, dice_res))
 
 
 bot.run(token)
