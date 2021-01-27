@@ -31,7 +31,7 @@ async def ping(ctx):
 async def toss(ctx):
     # coin toss
     arg = getArgByContext(ctx)
-    toss_res = coin_toss.toss()
+    toss_res = coin_toss.toss(arg)
     await ctx.send(discode_utils.get_mentioned_message(ctx, toss_res))
 
 
