@@ -36,8 +36,9 @@ async def toss(ctx):
 
 
 @bot.command()
-async def r(ctx, arg):
+async def r(ctx):
     # roll dice
+    arg = getArgByContext(ctx)
     dice_res = dice.roll(arg)
     await ctx.send(discode_utils.get_mentioned_message(ctx, dice_res))
 
