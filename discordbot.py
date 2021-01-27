@@ -9,6 +9,11 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
+def getArgByContext(ctx):
+    splited_message = ctx.message.content.split(' ')
+    return splited_message[1] if len(splited_message) == 2 else ''
+
+
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
@@ -25,6 +30,7 @@ async def ping(ctx):
 @bot.command()
 async def toss(ctx):
     # coin toss
+    arg = getArgByContext(ctx)
     toss_res = coin_toss.toss()
     await ctx.send(discode_utils.get_mentioned_message(ctx, toss_res))
 
