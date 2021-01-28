@@ -1,24 +1,24 @@
 import random
 
 
+def to_str_h_or_t(is_heads):
+    return '表' if is_heads else '裏'
+
+
 def get_str_by_flip_res(flip_res):
     # 結果を文字に変換する
-    if (flip_res == 0):
-        return ('裏')
-    else:
-        return ('表')
+    return to_str_h_or_t(flip_res == 1)
 
 
 def toss_loop_until_prm(until_heads):
     # 指定した面が出るまで振る
-    # until_heads == true　の時は表が出るまで(乱数でいうと0が出るまで)
+    # until_heads == true　の時は表が出るまで(乱数でいうと1が出るまで)
     successes_count = -1
     res = -1
-    while until_heads and not res == 0 or not until_heads and not res == 1:
+    while until_heads and not res == 1 or not until_heads and not res == 0:
         res = random.randint(0, 1)
         successes_count += 1
-    h_or_t = '表' if until_heads else '裏'
-    return '{}が出るまで振った結果 : {}回{}が出た'.format(h_or_t, successes_count, h_or_t)
+    return '{}が出るまで振った結果 : {}回{}が出た'.format(to_str_h_or_t(until_heads), successes_count, to_str_h_or_t(not until_heads))
 
 
 def toss(arg):
