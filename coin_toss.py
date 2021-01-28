@@ -18,7 +18,7 @@ def toss_loop_until_prm(until_heads):
     while until_heads and not res == 1 or not until_heads and not res == 0:
         res = random.randint(0, 1)
         successes_count += 1
-    return '{}が出るまで振った結果 : {}回{}が出た'.format(to_str_h_or_t(until_heads), successes_count, to_str_h_or_t(not until_heads))
+    return '{}が出るまで : {}回{}が出た'.format(to_str_h_or_t(until_heads), successes_count, to_str_h_or_t(not until_heads))
 
 
 def toss(arg):
@@ -39,7 +39,7 @@ def toss(arg):
     #     times, ','.join(map(str, flip_res_list)),
     #     sum([s == '表' for s in flip_res_list]),
     #     sum([s == '裏' for s in flip_res_list]))
-    res = '{}回 = 表{}回 , 裏{}回'.format(
+    res = '{}回 : 表{}回 , 裏{}回'.format(
         times,
         sum([i == 0 for i in flip_res_list]),
         sum([i == 1 for i in flip_res_list]))

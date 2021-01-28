@@ -16,10 +16,25 @@ def getArgByContext(ctx):
 
 @bot.event
 async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(
-        traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+    err_msg = 'パラメーターが間違っています\n'
+    err_msg += '例 コマンド : 意味↓\n'
+    if '/toss' in ctx.message.content:
+        err_msg += '/toss : コインを1回投げる\n'
+        err_msg += '/toss 100 : コインを100回投げる\n'
+        err_msg += '/toss t : 裏が出るまで投げる\n'
+        err_msg += '/toss h : 表が出るまで投げる\n'
+
+    if '/r' in ctx.message.content:
+        err_msg += '/r : 6面ダイスを1回投げる\n'
+        err_msg += '/r 3d5 : 5面ダイスを3回投げる\n'
+        err_msg += '/r d5 : 5面ダイスを1回投げる\n'
+        err_msg += '/r 4d : 6面ダイスを4回投げる\n'
+
+    await ctx.send(discode_utils.get_mentioned_message(ctx, err_msg))
+    # orig_error = getattr(error, "original", error)
+    # error_msg = ''.join(
+    #     traceback.TracebackException.from_exception(orig_error).format())
+    # await ctx.send(error_msg)
 
 
 @bot.command()
