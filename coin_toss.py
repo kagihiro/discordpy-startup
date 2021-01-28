@@ -14,7 +14,7 @@ def toss_loop_until_prm(until_heads):
     # until_heads == true　の時は表が出るまで(乱数でいうと0が出るまで)
     successes_count = -1
     res = -1
-    while(res == 1 and until_heads or res == 0 and not until_heads):
+    while until_heads and not res == 0 or not until_heads and res == 1:
         res = random.randint(0, 1)
         successes_count += 1
     h_or_t = '表' if until_heads else '表'
