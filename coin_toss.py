@@ -17,7 +17,7 @@ def toss_loop_until_prm(until_heads):
     while until_heads and not res == 0 or not until_heads and not res == 1:
         res = random.randint(0, 1)
         successes_count += 1
-    h_or_t = '表' if until_heads else '表'
+    h_or_t = '表' if until_heads else '裏'
     return '{}が出るまで振った結果 : {}回{}が出た'.format(h_or_t, successes_count, h_or_t)
 
 
