@@ -13,7 +13,7 @@ def get_mentioned_message(ctx, message):
 
 
 def role_to_name_and_id(role):
-    return f"name {role.name}, id {role.id}"
+    return f"{role.name} : {role.id}"
 
 
 def get_roles(guild):
