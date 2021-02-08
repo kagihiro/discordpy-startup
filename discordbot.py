@@ -58,4 +58,10 @@ async def r(ctx):
     await ctx.send(discode_utils.get_mentioned_message(ctx, dice_res))
 
 
+@bot.command()
+async def role(ctx):
+    roles = discode_utils.get_roles(ctx.guild)
+    await ctx.send(discode_utils.get_mentioned_message(ctx, roles))
+
+
 bot.run(token)
