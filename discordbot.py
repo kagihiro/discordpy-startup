@@ -72,10 +72,10 @@ async def role(ctx):
 
 @bot.event
 async def on_reaction_add(reaction, user):
-    await reaction.message.channel.send(len(reaction.message.reactions))
-    # reactions = reaction.message.reactions
-    # async for m_reaction in reactions:
-    #     await reaction.message.channel.send('{0.emoji} has reacted with!'.format(m_reaction))
+    # await reaction.message.channel.send(len(reaction.message.reactions))
+    m_reactions = reaction.message.reactions
+    async for m_reaction in m_reactions:
+        await reaction.message.channel.send('{0.emoji} has reacted with!'.format(m_reaction))
 
 
 bot.run(token)
