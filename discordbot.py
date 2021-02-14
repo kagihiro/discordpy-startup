@@ -39,7 +39,8 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def test(ctx):
-    await ctx.send(ctx.author)
+    send_meesage_str = "結果の登録を行います\n勝者の場合は:laughing:,敗者の場合は:tired_face:を押してください"
+    await ctx.send(discode_utils.get_mentioned_message(ctx, send_meesage_str))
 
 
 @bot.command()
@@ -67,6 +68,13 @@ async def r(ctx):
 async def role(ctx):
     roles = discode_utils.get_roles(ctx.guild)
     await ctx.send(discode_utils.get_mentioned_message(ctx, roles))
+
+
+@bot.event
+async def on_raw_reaction_add(payload):
+    reaction = payload.message.reaction
+    async for user in reaction.users():
+        await payload.send('{0} has reacted with {1.emoji}!'.format(user, reaction))
 
 
 bot.run(token)

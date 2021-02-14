@@ -7,6 +7,10 @@ def get_mention(ctx):
     return f"<@!{member_id}>"
 
 
+def get_name(ctx):
+    return ctx.author
+
+
 def get_mentioned_message(ctx, message):
     mention = get_mention(ctx)
     return '{}\n{}'.format(mention, message)
