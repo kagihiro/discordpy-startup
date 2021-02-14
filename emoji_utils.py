@@ -17,3 +17,7 @@ def get_emoji_enum(emoji_str):
         return Emoji.LOSE
     else:
         return Emoji.NONE
+
+
+def to_emoji(reaction):
+    return reaction.emoji

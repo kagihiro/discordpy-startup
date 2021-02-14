@@ -4,6 +4,7 @@ import traceback
 import coin_toss
 import dice
 import discode_utils
+import emoji_utils
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -73,9 +74,8 @@ async def role(ctx):
 @bot.event
 async def on_reaction_add(reaction, user):
     # await reaction.message.channel.send(len(reaction.message.reactions))
-    m_reactions = reaction.message.reactions
-    async for m_reaction in m_reactions:
-        await reaction.message.channel.send('{0.emoji} has reacted with!'.format(m_reaction))
+    m_reaction = reaction.message.reactions
+    await reaction.message.channel.send(','.join(map(emoji_utils.to_emoji, m_reaction)))
 
 
 bot.run(token)
